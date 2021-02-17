@@ -16,6 +16,7 @@ int points1, points2, points3, points4;
 int rebounds1, rebounds2, rebounds3, rebounds4;
 int fouls1, fouls2, fouls3, fouls4;
 double ppg1, ppg2, ppg3, ppg4; 
+//testing
 double rpg1, rpg2, rpg3, rpg4;
 double fpg1, fpg2, fpg3, fpg4;
 const double gamesTotal = 16.0;
