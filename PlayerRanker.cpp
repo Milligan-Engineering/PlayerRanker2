@@ -3,14 +3,15 @@
 //Email Address: jcnickens@my.milligan.edu
 //Term Project
 //Description: This program analyzes the stats of players in order to determine a league MVP
-//PM04
-//Last Changed: 2/14/21
+//PM05
+//Last Changed: 2/19/21
 
 #include <iostream>
 #include <string>
 using namespace std;
 
-int numberPlayers;
+int choice;
+int numPlayers;
 string player1, player2, player3, player4;
 int points1, points2, points3, points4;
 int rebounds1, rebounds2, rebounds3, rebounds4;
@@ -24,49 +25,41 @@ const double gamesTotal = 16.0;
 int main()
 {
 	cout << "Welcome to the Player Ranker \n";
+	cout << "Are you starting a new program or continuing an old one?";
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			cout << "Starting new program.";
+			break;
+
+		case 2:
+			cout << "Continuing old program.";
+			break;
+
+		case 3:
+			cout << "Not a valid choice.";
+			cout << "Choose again.";
+			cin >> choice;
+			break;
+		}
 	cout << "How many players are there? ";
-	cin >> numberPlayers;
-	int i = 1;
-	cout << "\nWhat is the player's name? ";
-	cin >> player1;
-	cout << "How many points did they score? ";
-	cin >> points1;
-	cout << "How many rebounds did they have? ";
-	cin >> rebounds1;
-	cout << "How many times did they foul? ";
-	cin >> fouls1;
-	i++;
-	cout << "\nWhat is the player's name? ";
-	cin >> player2;
-	cout << "How many points did they score? ";
-	cin >> points2;
-	cout << "How many rebounds did they have? ";
-	cin >> rebounds2;
-	cout << "How many times did they foul? ";
-	cin >> fouls2;
-	i++;
-	if (i <= numberPlayers)
+	cin >> numPlayers;
+	if (numPlayers < 0 || numPlayers > 60)
+	{
+		cout << "Please re-enter the number of players.";
+		cin >> numPlayers;
+	}
+	for (int i = 0; i <= numPlayers; i++)
 	{
 		cout << "\nWhat is the player's name? ";
-		cin >> player3;
+		cin >> player1;
 		cout << "How many points did they score? ";
-		cin >> points3;
+		cin >> points1;
 		cout << "How many rebounds did they have? ";
-		cin >> rebounds3;
+		cin >> rebounds1;
 		cout << "How many times did they foul? ";
-		cin >> fouls3;
-		i++;
-		if (i <= numberPlayers)
-		{
-			cout << "\nWhat is the player's name? ";
-			cin >> player4;
-			cout << "How many points did they score? ";
-			cin >> points4;
-			cout << "How many rebounds did they have? ";
-			cin >> rebounds4;
-			cout << "How many times did they foul? ";
-			cin >> fouls4;
-		}
+		cin >> fouls1;
 	}
 	ppg1 = points1 / gamesTotal;
 	rpg1 = rebounds1 / gamesTotal;
