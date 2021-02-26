@@ -3,8 +3,8 @@
 //Email Address: jcnickens@my.milligan.edu
 //Term Project
 //Description: This program analyzes the stats of players in order to determine a league MVP
-//PM05
-//Last Changed: 2/19/21
+//PM06
+//Last Changed: 2/26/21
 
 #include <iostream>
 #include <string>
@@ -12,13 +12,14 @@ using namespace std;
 
 int choice;
 int numPlayers;
+const int maxPlayers = 60;
 string player1, player2, player3, player4;
 int points1, points2, points3, points4;
 int rebounds1, rebounds2, rebounds3, rebounds4;
 int fouls1, fouls2, fouls3, fouls4;
-double ppg1, ppg2, ppg3, ppg4; 
-double rpg1, rpg2, rpg3, rpg4;
-double fpg1, fpg2, fpg3, fpg4;
+double ppg[maxPlayers]; 
+double rpg[maxPlayers];
+double fpg[maxPlayers];
 const double gamesTotal = 16.0;
 //gamesTotal will be constant for all teams barring any cancelations or forfeits
 
@@ -61,16 +62,16 @@ int main()
 		cout << "How many times did they foul? ";
 		cin >> fouls1;
 	}
-	ppg1 = points1 / gamesTotal;
-	rpg1 = rebounds1 / gamesTotal;
-	fpg1 = fouls1 / gamesTotal;
+	ppg[0] = points1 / gamesTotal;
+	rpg[0] = rebounds1 / gamesTotal;
+	fpg[0] = fouls1 / gamesTotal;
 	cout << "player1 stats are: \n";
 	cout << "Points per Game: ";
-	cout << ppg1;
+	cout << ppg[0];
 	cout << "\nRebounds per Game: ";
-	cout << rpg1;
+	cout << rpg[0];
 	cout << "\nFouls per Game: ";
-	cout << fpg1;
+	cout << fpg[0];
 
 
 		return 0;
