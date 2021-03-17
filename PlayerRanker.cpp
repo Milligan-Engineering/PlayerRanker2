@@ -13,7 +13,7 @@ using namespace std;
 
 int choice;
 int numPlayers;
-int points[16];
+const double gamesTotal = 16.0;
 const int maxPlayers = 60;
 string player[maxPlayers];
 int points[maxPlayers];
@@ -22,7 +22,6 @@ int fouls[maxPlayers];
 double ppg[maxPlayers]; 
 double rpg[maxPlayers];
 double fpg[maxPlayers];
-const double gamesTotal = 16.0;
 void listPrint(string s[], int size);
 void listPrint(string s[], int p[], int size);
 
@@ -62,7 +61,7 @@ int main()
 		cin >> choice;
 		break;
 	}
-	cout << "Do you have total points or by game points?";
+	cout << "Do you have total points or by game points?\n";
 	cout << "1. Total points   2. By game points";
 	cout << " :";
 	cin >> choice;
@@ -83,24 +82,25 @@ int main()
 			cout << "\nWhat is the player's name? ";
 			cin >> player[i];
 			cout << "How many points did they score? ";
-			cin >> points1;
+			cin >> points[i];
 			cout << "How many rebounds did they have? ";
-			cin >> rebounds1;
+			cin >> rebounds[i];
 			cout << "How many times did they foul? ";
-			cin >> fouls1;
+			cin >> fouls[i];
 		}
-		listPrint(player[], numPlayers);
-
-		ppg[0] = points[i] / gamesTotal;
-		rpg[0] = rebounds[i] / gamesTotal;
-		fpg[0] = fouls[i] / gamesTotal;
-		cout << "player1 stats are: \n";
-		cout << "Points per Game: ";
-		cin >> ppg[0];
-		cout << "\nRebounds per Game: ";
-		cin >> rpg[0];
-		cout << "\nFouls per Game: ";
-		cin >> fpg[0];
+		for (int i = 0; i < numPlayers; i++)
+		{
+			ppg[i] = points[i] / gamesTotal;
+			rpg[i] = rebounds[i] / gamesTotal;
+			fpg[i] = fouls[i] / gamesTotal;
+			cout << "player1 stats are: \n";
+			cout << "Points per Game: ";
+			cin >> ppg[0];
+			cout << "\nRebounds per Game: ";
+			cin >> rpg[0];
+			cout << "\nFouls per Game: ";
+			cin >> fpg[0];
+		}
 		break;
 	}
 
