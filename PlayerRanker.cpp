@@ -4,24 +4,29 @@
 //Term Project
 //Description: This program analyzes the stats of players in order to determine a league MVP
 //PM06
-//Last Changed: 3/10/21
+//Last Changed: 3/17/21
 
 #include <iostream>
 #include <string>
+#include <list>
 using namespace std;
 
 int choice;
 int numPlayers;
 int points[16];
 const int maxPlayers = 60;
-string player1, player2, player3, player4;
-int points1, points2, points3, points4;
-int rebounds1, rebounds2, rebounds3, rebounds4;
-int fouls1, fouls2, fouls3, fouls4;
+string player[maxPlayers];
+int points[maxPlayers];
+int rebounds[maxPlayers];
+int fouls[maxPlayers];
 double ppg[maxPlayers]; 
 double rpg[maxPlayers];
 double fpg[maxPlayers];
 const double gamesTotal = 16.0;
+void listPrint(string s[], int size);
+void listPrint(string s[], int p[], int size);
+
+
 //gamesTotal will be constant for all teams barring any cancelations or forfeits
 //double mvpCalc()
 //Precondition: given player info
@@ -64,6 +69,7 @@ int main()
 	switch (choice)
 	{
 	case 1:
+	{
 		cout << "Starting total point system\n";
 		cout << "How many players are there? ";
 		cin >> numPlayers;
@@ -75,7 +81,7 @@ int main()
 		for (int i = 0; i <= numPlayers; i++)
 		{
 			cout << "\nWhat is the player's name? ";
-			cin >> player1;
+			cin >> player[i];
 			cout << "How many points did they score? ";
 			cin >> points1;
 			cout << "How many rebounds did they have? ";
@@ -83,19 +89,25 @@ int main()
 			cout << "How many times did they foul? ";
 			cin >> fouls1;
 		}
-		ppg[0] = points1 / gamesTotal;
-		rpg[0] = rebounds1 / gamesTotal;
-		fpg[0] = fouls1 / gamesTotal;
+		listPrint(player[], numPlayers);
+
+		ppg[0] = points[i] / gamesTotal;
+		rpg[0] = rebounds[i] / gamesTotal;
+		fpg[0] = fouls[i] / gamesTotal;
 		cout << "player1 stats are: \n";
 		cout << "Points per Game: ";
-		cout << ppg[0];
+		cin >> ppg[0];
 		cout << "\nRebounds per Game: ";
-		cout << rpg[0];
+		cin >> rpg[0];
 		cout << "\nFouls per Game: ";
-		cout << fpg[0];
+		cin >> fpg[0];
 		break;
+	}
+
+
 
 	case 2:
+	{
 		cout << "Starting by game system";
 		cout << "How many players are there? ";
 		cin >> numPlayers;
@@ -107,19 +119,23 @@ int main()
 		for (int i = 0; i <= numPlayers; i++)
 		{
 			cout << "\nWhat is the player's name? ";
-			cin >> player1;
+			cin >> player[i];
 			cout << "Input their points for each game. ";
-		break;
+			break;
+		}
+	}
 
 
 	case 3:
+	{
 		cout << "Not a valid choice.";
 		cout << "Choose again.";
 		cin >> choice;
 		break;
 	}
 
-	
+
+
 	//int sum(week1, week2, week3, week4, week5, week6, week7, week8, week9, week10, week11, week12, week13, week14, week15, week16);
 	//{
 		//cin week1, week2, week3, week4, week5, week6, week7, week8, week9, week10, week11, week12, week13, week14, week15, week16;
@@ -130,5 +146,22 @@ int main()
 		//cin week1, week2, week3, week4, week5, week6, week7, week8, week9, week10, week11, week12, week13, week14, week15, week16;
 		//average(week1, week2, week3, week4, week5, week6, week7, week8, week9, week10, week11, week12, week13, week14, week15, week16);
 	//}
-		return 0;
+	return 0;
+
+	}
+}
+void listPrint(string s[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << s[i] << "\n " ;
+	}
+	return;
+}
+void listPrint(string s[], int p[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		cout << s[i] << "\n  " << p[i] << " ";
+	}
 }
